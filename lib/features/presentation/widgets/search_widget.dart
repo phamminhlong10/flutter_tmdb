@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rest_api/routes.dart';
 
+import '../bloc/item/item_bloc.dart';
+import '../bloc/item/item_event.dart';
 import '../bloc/result/fetch_results_state.dart';
 import '../bloc/result/fetch_results_event.dart';
 import 'loading_widget.dart';
@@ -64,9 +66,10 @@ class SearchWidget extends SearchDelegate{
                 return GestureDetector(
                   onTap: (){
                     if(state.result[index].mediaType != 'person'){
+                      context.read<ItemBloc>().add(OnSelectItem(item: state.result[index]));
                       AppNavigator.push(Routes.itemInfo, state.result[index]);
                     }else{
-                      AppNavigator.push(Routes.itemInfo, state.result[index].id);
+                      AppNavigator.push(Routes.personInfo, state.result[index].id);
                     }
                   },
                   child: Container(

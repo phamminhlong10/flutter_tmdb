@@ -10,8 +10,8 @@ import '../widgets/list_person_horizontal.dart';
 import '../widgets/loading_widget.dart';
 import '../widgets/search_widget.dart';
 
-class CAHome extends StatelessWidget {
-  const CAHome({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

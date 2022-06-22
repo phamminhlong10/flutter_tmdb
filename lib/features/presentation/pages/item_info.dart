@@ -17,6 +17,7 @@ class ItemInfo extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         title: Text('${result.title ?? result.name}', style: const TextStyle(color: Colors.white),),
         leading: IconButton(
+          color: Colors.white,
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
               AppNavigator.pop();

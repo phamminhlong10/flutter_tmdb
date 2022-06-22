@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rest_api/features/domain/entities/result.dart';
-import 'package:rest_api/features/presentation/pages/ca_home.dart';
+import 'package:rest_api/features/presentation/pages/home.dart';
 import 'package:rest_api/features/presentation/pages/item_info.dart';
 import 'package:rest_api/features/presentation/pages/person_info.dart';
 
@@ -26,7 +26,7 @@ class AppNavigator{
   static Route onGenerateRoute(RouteSettings settings){
     switch(settings.name){
       case _Paths.home:
-        return MaterialPageRoute(builder: (context) => const CAHome());
+        return MaterialPageRoute(builder: (context) => const Home());
       case _Paths.itemInfo:
         final args = settings.arguments as Result;
         return MaterialPageRoute(builder: (context) => ItemInfo(result: args));
@@ -34,7 +34,7 @@ class AppNavigator{
         final args = settings.arguments as int;
         return MaterialPageRoute(builder: (context) => PersonInfo(id: args));
       default:
-        return MaterialPageRoute(builder: (context) => const CAHome());
+        return MaterialPageRoute(builder: (context) => const Home());
     }
   }
 
