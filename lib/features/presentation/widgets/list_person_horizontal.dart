@@ -30,7 +30,7 @@ class ListPersonHorizontal extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             foregroundImage: NetworkImage(
-                                "https://www.themoviedb.org/t/p/original/${casts == null ? list![index].profilePath : casts![index].profilePath}"),
+                                "https://image.tmdb.org/t/p/w500/${casts == null ? list![index].profilePath : casts![index].profilePath}"),
                             radius: 64,
                             backgroundColor: Colors.grey[100],
                           ),

@@ -82,8 +82,11 @@ class SearchWidget extends SearchDelegate{
                           (state.result[index].posterPath != null || state.result[index].profilePath != null
                               ? ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              "https://www.themoviedb.org/t/p/w185/${state.result[index].posterPath ?? state.result[index].profilePath}",),
+                            child: Hero(
+                              tag: 'horizontal-hero-${state.result[index].id}',
+                              child: Image.network(
+                                "https://image.tmdb.org/t/p/w500/${state.result[index].posterPath ?? state.result[index].profilePath}",),
+                            ),
                           )
                               : Container(
                             width: 133,

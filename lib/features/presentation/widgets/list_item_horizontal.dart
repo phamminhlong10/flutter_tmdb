@@ -39,10 +39,13 @@ class ListItemHorizontal extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(20),
-                            child: Image.network(
-                              "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${list![index].posterPath}",
-                              width: 150,
-                              height: 225,
+                            child: Hero(
+                              tag: 'horizontal-hero-${list![index].id}',
+                              child: Image.network(
+                                "https://image.tmdb.org/t/p/w500/${list![index].posterPath}",
+                                width: 150,
+                                height: 225,
+                              ),
                             ),
                           ),
                         ],

@@ -27,8 +27,11 @@ class AboutWidget extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(80),
                       bottomLeft: Radius.circular(80)),
-                  child: Image.network(
-                      "https://image.tmdb.org/t/p/w780/${item.posterPath}")),
+                  child: Hero(
+                    tag: 'horizontal-hero-${item.id}',
+                    child: Image.network(
+                        "https://image.tmdb.org/t/p/w500/${item.posterPath}"),
+                  )),
               Column(
                 children: [
                   const SizedBox(height: 16),

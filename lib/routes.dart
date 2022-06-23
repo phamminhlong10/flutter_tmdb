@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rest_api/core/animation/slide_up.dart';
 import 'package:rest_api/features/domain/entities/result.dart';
 import 'package:rest_api/features/presentation/pages/home.dart';
 import 'package:rest_api/features/presentation/pages/item_info.dart';
@@ -32,7 +33,7 @@ class AppNavigator{
         return MaterialPageRoute(builder: (context) => ItemInfo(result: args));
       case _Paths.personInfo:
         final args = settings.arguments as int;
-        return MaterialPageRoute(builder: (context) => PersonInfo(id: args));
+        return SlideUp(page: PersonInfo(id: args));
       default:
         return MaterialPageRoute(builder: (context) => const Home());
     }
