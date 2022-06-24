@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/platform/url_launch.dart';
-import '../../../domain/entities/result.dart';
 import '../../bloc/item/item_bloc.dart';
 import '../../bloc/item/item_state.dart';
 import '../../bloc/trailer/trailer_bloc.dart';
@@ -11,8 +10,7 @@ import '../../bloc/trailer/trailer_state.dart';
 import '../loading_widget.dart';
 
 class AboutWidget extends StatelessWidget {
-  const AboutWidget({Key? key, required this.item}) : super(key: key);
-  final Result item;
+  const AboutWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ItemBloc, ItemState>(
@@ -28,9 +26,9 @@ class AboutWidget extends StatelessWidget {
                       bottomRight: Radius.circular(80),
                       bottomLeft: Radius.circular(80)),
                   child: Hero(
-                    tag: 'horizontal-hero-${item.id}',
+                    tag: 'horizontal-hero-${state.item.id}',
                     child: Image.network(
-                        "https://image.tmdb.org/t/p/w500/${item.posterPath}"),
+                        "https://image.tmdb.org/t/p/w500/${state.item.posterPath}"),
                   )),
               Column(
                 children: [
@@ -45,8 +43,8 @@ class AboutWidget extends StatelessWidget {
                     child: ElevatedButton.icon(
                         onPressed: () {
                           context.read<TrailerBloc>().add(OnPressTrailer(
-                              type: item.releaseDate != null ? 'movie' : 'tv',
-                              id: item.id));
+                              type: state.item.releaseDate != null ? 'movie' : 'tv',
+                              id: state.item.id));
                         },
                         icon: Icon(Icons.play_arrow,
                             color: Theme.of(context).primaryColor),
@@ -58,31 +56,31 @@ class AboutWidget extends StatelessWidget {
                   ),
                   Container(
                     padding: const EdgeInsets.all(10),
-                    child: Text("${item.title ?? item.name}",
+                    child: Text("${state.item.title ?? state.item.name}",
                         style: Theme.of(context).textTheme.headline5),
                   ),
                   Container(
                     padding: const EdgeInsets.all(20),
                     child: Text(
-                      "${item.overview}",
+                      "${state.item.overview}",
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    item.releaseDate != null
+                    state.item.releaseDate != null
                         ? 'Release date'
                         : 'First air date',
                     style: const TextStyle(color: Colors.white),
                   ),
                   Text(
-                    "${item.releaseDate ?? item.firstAirDate}",
+                    "${state.item.releaseDate ?? state.item.firstAirDate}",
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                   const SizedBox(height: 8),
                   const Text('Vote average',
                       style: TextStyle(color: Colors.white)),
-                  Text("${item.voteAverage}",
+                  Text("${state.item.voteAverage}",
                       style: Theme.of(context).textTheme.bodyText1),
                   const SizedBox(height: 8)
                 ],

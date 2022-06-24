@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rest_api/routes.dart';
 
 import '../../domain/entities/result.dart';
@@ -26,7 +25,7 @@ class ItemInfo extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            AboutWidget(item: result),
+            const AboutWidget(),
             ListCasts(result: result),
             ItemSimilar(result: result),
           ],
