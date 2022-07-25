@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../routes.dart';
+import '../../bloc/item/item_bloc.dart';
+import '../../bloc/item/item_event.dart';
 import '../../bloc/result/fetch_results_bloc.dart';
 import '../../bloc/result/fetch_results_event.dart';
 import '../../bloc/result/fetch_results_state.dart';
@@ -33,6 +35,7 @@ class ListItemGrid extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
+                      context.read<ItemBloc>().add(OnSelectItem(item: state.result[index]));
                       AppNavigator.push(Routes.itemInfo, state.result[index]);
                     },
                     child: Column(
