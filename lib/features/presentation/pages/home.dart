@@ -5,8 +5,8 @@ import '../../../../injection_container.dart';
 import '../bloc/result/fetch_results_bloc.dart';
 import '../bloc/result/fetch_results_event.dart';
 import '../bloc/result/fetch_results_state.dart';
-import '../widgets/list_item_horizontal.dart';
-import '../widgets/list_person_horizontal.dart';
+import '../widgets/list/list_item_horizontal.dart';
+import '../widgets/list/list_person_horizontal.dart';
 import '../widgets/loading_widget.dart';
 import '../widgets/search_widget.dart';
 

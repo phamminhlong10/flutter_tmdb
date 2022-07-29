@@ -6,7 +6,7 @@ import '../../../domain/entities/result.dart';
 import '../../bloc/result/fetch_results_bloc.dart';
 import '../../bloc/result/fetch_results_event.dart';
 import '../../bloc/result/fetch_results_state.dart';
-import '../list_item_horizontal.dart';
+import '../list/list_item_horizontal.dart';
 import '../loading_widget.dart';
 
 class ItemSimilar extends StatelessWidget {

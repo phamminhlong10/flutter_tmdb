@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rest_api/routes.dart';
 
-import '../../../../injection_container.dart';
-import '../../domain/entities/result.dart';
-import '../bloc/item/item_bloc.dart';
-import '../bloc/item/item_event.dart';
+import '../../../domain/entities/result.dart';
+import '../../bloc/item/item_bloc.dart';
+import '../../bloc/item/item_event.dart';
 
 class ListItemHorizontal extends StatelessWidget {
   const ListItemHorizontal({Key? key, this.list, this.isReplaceWith}) : super(key: key);

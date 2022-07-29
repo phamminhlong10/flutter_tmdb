@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rest_api/routes.dart';
 
-import '../../domain/entities/cast.dart';
-import '../../domain/entities/result.dart';
+import '../../../domain/entities/cast.dart';
+import '../../../domain/entities/result.dart';
 
 class ListPersonHorizontal extends StatelessWidget {
-  const ListPersonHorizontal({Key? key, this.list, this.casts}) : super(key: key);
+  const ListPersonHorizontal({Key? key, this.list, this.casts, this.isReplaceWith}) : super(key: key);
   final List<Result>? list;
   final List<Cast>? casts;
+  final bool? isReplaceWith;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -22,7 +23,11 @@ class ListPersonHorizontal extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: (){
-                      AppNavigator.push(Routes.personInfo, list?[index].id ?? casts?[index].id);
+                      if(isReplaceWith == true){
+                        AppNavigator.replaceWith(Routes.personInfo, list?[index].id ?? casts?[index].id);
+                      }else{
+                        AppNavigator.push(Routes.personInfo, list?[index].id ?? casts?[index].id);
+                      }
                     },
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),

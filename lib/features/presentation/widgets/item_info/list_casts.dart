@@ -6,7 +6,7 @@ import '../../../domain/entities/result.dart';
 import '../../bloc/cast/cast_bloc.dart';
 import '../../bloc/cast/cast_event.dart';
 import '../../bloc/cast/cast_state.dart';
-import '../list_person_horizontal.dart';
+import '../list/list_person_horizontal.dart';
 import '../loading_widget.dart';
 
 class ListCasts extends StatelessWidget {
@@ -31,7 +31,7 @@ class ListCasts extends StatelessWidget {
                     Text("Casts",
                         style: Theme.of(context).textTheme.subtitle1),
                     const SizedBox(height: 8),
-                    ListPersonHorizontal(casts: state.casts)
+                    ListPersonHorizontal(casts: state.casts, isReplaceWith: true,)
                   ]),
             );
           } else {

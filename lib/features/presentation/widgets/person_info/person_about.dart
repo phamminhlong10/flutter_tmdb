@@ -45,7 +45,7 @@ class PersonAbout extends StatelessWidget {
               ],
             );
           }else if(state is PersonError){
-            return Center(child: Text('${state.message}'),);
+            return Center(child: Text(state.message),);
           }else{
             return Container();
           }
